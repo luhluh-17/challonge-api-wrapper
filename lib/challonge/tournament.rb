@@ -6,7 +6,7 @@ module Challonge
       Challonge::Client.call(http_method: 'get', endpoint: 'tournaments.json', args: args)
     end
 
-    def self.show(id:)
+    def self.find_by_id(id:)
       Challonge::Client.call(http_method: 'get', endpoint: "tournaments/#{id}.json")
     end
 
