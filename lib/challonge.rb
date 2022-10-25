@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "challonge/version"
+require_relative 'challonge/version'
 
 module Challonge
-  class Error < StandardError; end
-  # Your code goes here...
+  autoload :Client, 'challonge/client'
+  autoload :Error, 'challonge/error'
+  autoload :Request, 'challonge/request'
 end
