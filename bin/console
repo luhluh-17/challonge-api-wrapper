@@ -11,6 +11,7 @@ require 'dotenv/load'
 # (If you use this, don't forget to add pry to your Gemfile!)
 # require "pry"
 # Pry.start
+@client = Challonge::Client.new(api_key: ENV['API_KEY'])
 @tournaments = Challonge::Tournament.all
 
 require 'irb'

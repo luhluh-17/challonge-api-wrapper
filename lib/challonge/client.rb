@@ -6,11 +6,17 @@ module Challonge
   class Client
     BASE_URL = 'https://api.challonge.com/v1/'
 
-    def self.connection
+    attr_reader :api_key
+
+    def initialize(api_key:)
+      @api_key = api_key
+    end
+
+    def connection
       @connection ||=
         Faraday.new do |conn|
           conn.url_prefix = BASE_URL
-          conn.params = { api_key: ENV['API_KEY'] }
+          conn.params = { api_key: api_key }
           conn.request :json
           conn.response :json
           conn.adapter Faraday.default_adapter
@@ -18,7 +24,7 @@ module Challonge
         end
     end
 
-    def self.call(http_method:, endpoint:, args: {})
+    def call(http_method:, endpoint:, args: {})
       response = connection.send(http_method, endpoint, args)
       { code: response.status, status: 'Success', data: response.body }
     rescue Faraday::Error => e
