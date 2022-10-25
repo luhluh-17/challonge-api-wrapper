@@ -5,5 +5,5 @@ require_relative 'challonge/version'
 module Challonge
   autoload :Client, 'challonge/client'
   autoload :Error, 'challonge/error'
-  autoload :Request, 'challonge/request'
+  autoload :Tournament, 'challonge/tournament'
 end
