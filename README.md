@@ -1,8 +1,6 @@
-# Challonge
+# Challonge-API-Wrapper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/challonge`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby API Wrapper for [Challonge](https://challonge.com/)
 
 ## Installation
 
@@ -16,7 +14,37 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+### Tournament
+https://api.challonge.com/v1/documents/tournaments/index#
+
+List all tournament
+```ruby
+Challonge::Tournament.all
+```
+filter all tournament using parameters
+
+```ruby
+Challonge::Tournament.all(args: {state: 'ended'})
+```
+
+Find tournament by id
+```ruby
+Challonge::Tournament.find_by_id(id: 1)
+```
+Create new tournament
+Currently only accepts name as parameter
+```ruby
+Challonge::Tournament.create(name: 'My-Tournament')
+```
+Edit Tournament
+Can only edit the tournament name
+```ruby
+Challonge::Tournament.update(id: 1, name: 'Tournament')
+```
+Delete Tournament
+```ruby
+Challonge::Tournament.delete(id: 1)
+```
 
 ## Development
 
@@ -26,7 +54,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/challonge. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/challonge/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/luhluh/challonge. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/luhluh-17/challonge/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -34,4 +62,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Challonge project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/challonge/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Challonge project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/luhluh-17/challonge/blob/main/CODE_OF_CONDUCT.md).
